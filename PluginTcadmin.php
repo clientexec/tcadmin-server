@@ -9,7 +9,11 @@ require_once 'library/CE/NE_Network.php';
 */
 class PluginTcadmin extends ServerPlugin
 {
-    public $usesPackageName = false;
+    public $features = array(
+        'packageName' => false,
+        'testConnection' => false,
+        'showNameservers' => false
+    );
 
     /*****************************************************************/
     // function getVariables - required function
