@@ -29,235 +29,235 @@ class PluginTcadmin extends ServerPlugin
 
 
         $variables = array (
-        /*T*/"Name"/*/T*/ => array (
+        lang("Name") => array (
                                     "type"            =>    "hidden",
-                                    "description"     =>    /*T*/"Used By CE to show plugin - must match how you call the action function names"/*/T*/,
+                                    "description"     =>    lang("Used By CE to show plugin - must match how you call the action function names"),
                                     "value"           =>    "Tcadmin"
                             ),
-        /*T*/"Billing API url"/*/T*/ => array (
+        lang("Billing API url") => array (
                                     "type"            =>    "text",
-                                    "description"     =>    /*T*/"Example http://panel.stealthservers.net/billingapi.aspx"/*/T*/,
+                                    "description"     =>    lang("Example http://panel.stealthservers.net/billingapi.aspx"),
                                     "value"           =>    ""
                             ),
-        /*T*/"Admin username"/*/T*/ => array (
+        lang("Admin username") => array (
                                     "type"            =>    "text",
-                                    "description"     =>    /*T*/"Administrator username"/*/T*/,
+                                    "description"     =>    lang("Administrator username"),
                                     "value"           =>    ""
                             ),
-        /*T*/"Admin password"/*/T*/ => array (
+        lang("Admin password") => array (
                                     "type"            =>    "password",
-                                    "description"     =>    /*T*/"Administrator password"/*/T*/,
+                                    "description"     =>    lang("Administrator password"),
                                     "value"           =>    "",
                                     "encryptable"     => true
                             ),
-        /*T*/"Error Email"/*/T*/ => array (
+        lang("Error Email") => array (
                                     "type"            =>    "text",
-                                    "description"     =>    /*T*/"Email errors will be sent to."/*/T*/,
+                                    "description"     =>    lang("Email errors will be sent to."),
                                     "value"           =>    ""
                             ),
-        /*T*/"Description"/*/T*/ => array (
+        lang("Description") => array (
                                     "type"            =>    "hidden",
-                                    "description"     =>    /*T*/"Description visable by admin in server settings"/*/T*/,
-                                    "value"           =>    /*T*/"Tcadmin configuration"/*/T*/
+                                    "description"     =>    lang("Description visable by admin in server settings"),
+                                    "value"           =>    lang("Tcadmin configuration")
                             ),
-        /*T*/"Client Username Custom Field"/*/T*/ => array(
+        lang("Client Username Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the client username."/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the client username."),
                                     "value"           => ""
                             ),
 
-        /*T*/"Client Password Custom Field"/*/T*/ => array(
+        lang("Client Password Custom Field") => array(
                                     "type"            => "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the client password"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the client password"),
                                     "value"           => ""
                             ),
-        /*T*/"Location Custom Field"/*/T*/ => array(
+        lang("Location Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the locations.<br> Note: Locations should look like so: North (Tcadmin DCID),East (Tcadmin DCID),South (Tcadmin DCID),West (Tcadmin DCID)."/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the locations.<br> Note: Locations should look like so: North (Tcadmin DCID),East (Tcadmin DCID),South (Tcadmin DCID),West (Tcadmin DCID)."),
                                     "value"           => ""
                             ),
-        /*T*/"Game Hostname Custom Field"/*/T*/ => array(
+        lang("Game Hostname Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the game hostname. (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the game hostname. (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/"Game Rcon Password Custom Field"/*/T*/ => array(
+        lang("Game Rcon Password Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the game rcon password. (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the game rcon password. (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/"Game Private Password Custom Field"/*/T*/ => array(
+        lang("Game Private Password Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the game private password. (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the game private password. (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/"Voice Location Custom Field"/*/T*/ => array(
+        lang("Voice Location Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the voice locations.<br> Note: Voice Locations should look like so: North (Tcadmin DCID),East (Tcadmin DCID),South (Tcadmin DCID),West (Tcadmin DCID)."/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the voice locations.<br> Note: Voice Locations should look like so: North (Tcadmin DCID),East (Tcadmin DCID),South (Tcadmin DCID),West (Tcadmin DCID)."),
                                     "value"           => ""
                             ),
-        /*T*/"Voice Hostname Custom Field"/*/T*/ => array(
+        lang("Voice Hostname Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the voice hostname. (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the voice hostname. (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/"Voice Rcon Password Custom Field"/*/T*/ => array(
+        lang("Voice Rcon Password Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the voice rcon password. (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the voice rcon password. (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/"Voice Private Password Custom Field"/*/T*/ => array(
+        lang("Voice Private Password Custom Field") => array(
                                     "type"            =>    "text",
-                                    "description"     => /*T*/"Enter the name of the package custom field that will hold the voice private password.  (optional)"/*/T*/,
+                                    "description"     => lang("Enter the name of the package custom field that will hold the voice private password.  (optional)"),
                                     "value"           => ""
                             ),
-        /*T*/'package_vars'/*/T*/  => array(
+        lang('package_vars')  => array(
                                     'type'            => 'hidden',
-                                    'description'     => /*T*/'Whether package settings are set'/*/T*/,
+                                    'description'     => lang('Whether package settings are set'),
                                     'value'           => '0',
                             ),
-        /*T*/'package_vars_values'/*/T*/ => array(
+        lang('package_vars_values') => array(
                                     'type'            => 'hidden',
-                                    'description'     => /*T*/'Tcadmin settings'/*/T*/,
+                                    'description'     => lang('Tcadmin settings'),
                                     'value'           => array(
-                                                                /*T*/'skip_setup_page'/*/T*/ => array(
+                                                                lang('skip_setup_page') => array(
                                                                                 'type'            =>'yesno',
-                                                                                'label'           => /*T*/'skip_setup_page'/*/T*/,
-                                                                                'description'     => /*T*/'Skips the setup page email. <b>Values</b>: 1=Yes, 0=No'/*/T*/,
+                                                                                'label'           => lang('skip_setup_page'),
+                                                                                'description'     => lang('Skips the setup page email. <b>Values</b>: 1=Yes, 0=No'),
                                                                                 'value'           => '0',
                                                                         ),
                                                                 'game_datacenter' => array(
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_datacenter'/*/T*/,
-                                                                                'description'     => /*T*/'The datacenter id where the game server will be created. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('game_datacenter'),
+                                                                                'description'     => lang('The datacenter id where the game server will be created. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_hostname' => array(
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_hostname'/*/T*/,
-                                                                                'description'     => /*T*/'The game server\'s hostname. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('game_hostname'),
+                                                                                'description'     => lang('The game server\'s hostname. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_rcon_password' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_rcon_password'/*/T*/,
-                                                                                'description'     => /*T*/'The game server\'s rcon password. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('game_rcon_password'),
+                                                                                'description'     => lang('The game server\'s rcon password. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_private_password' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_private_password'/*/T*/,
-                                                                                'description'     => /*T*/'The game server\'s private password. This is only used if <b>skip_setup_page</b> = 1 and <b>game_private</b> = 1'/*/T*/,
+                                                                                'label'           => lang('game_private_password'),
+                                                                                'description'     => lang('The game server\'s private password. This is only used if <b>skip_setup_page</b> = 1 and <b>game_private</b> = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_id' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_id'/*/T*/,
-                                                                                'description'     => /*T*/'The game id of the new game sever. Set to blank or NONE to disable.'/*/T*/,
+                                                                                'label'           => lang('game_id'),
+                                                                                'description'     => lang('The game id of the new game sever. Set to blank or NONE to disable.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_slots' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_slots'/*/T*/,
-                                                                                'description'     => /*T*/'The slots that the game server will have. If set to 0 or blank, no game server will be created.<br /> This variable can also contain the prefixes PRI and PUB, to specify private or public servers without having to use game_private.'/*/T*/,
+                                                                                'label'           => lang('game_slots'),
+                                                                                'description'     => lang('The slots that the game server will have. If set to 0 or blank, no game server will be created.<br /> This variable can also contain the prefixes PRI and PUB, to specify private or public servers without having to use game_private.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_add_slots' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_add_slots'/*/T*/,
-                                                                                'description'     => /*T*/'Additional slots that the game server will have. One way to use this variable is when selling an optional HLTV server since you want to increase the slot count by 1.'/*/T*/,
+                                                                                'label'           => lang('game_add_slots'),
+                                                                                'description'     => lang('Additional slots that the game server will have. One way to use this variable is when selling an optional HLTV server since you want to increase the slot count by 1.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_add_arg' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_add_arg'/*/T*/,
-                                                                                'description'     => /*T*/'Specifies any additional arguments that will be added to the default command line. Works like additional arguments in the game server\'s service settings.'/*/T*/,
+                                                                                'label'           => lang('game_add_arg'),
+                                                                                'description'     => lang('Specifies any additional arguments that will be added to the default command line. Works like additional arguments in the game server\'s service settings.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'game_branded' => array (
                                                                                 'type'            => 'yesno',
-                                                                                'label'           => /*T*/'game_branded'/*/T*/,
-                                                                                'description'     => /*T*/'Specifies if the game server will be branded. <b>Values</b>: 1=Yes, 0=No'/*/T*/,
+                                                                                'label'           => lang('game_branded'),
+                                                                                'description'     => lang('Specifies if the game server will be branded. <b>Values</b>: 1=Yes, 0=No'),
                                                                                 'value'           => '0',
                                                                         ),
                                                                 'game_private' => array (
                                                                                 'type'            => 'yesno',
-                                                                                'label'           => /*T*/'game_private'/*/T*/,
-                                                                                'description'     => /*T*/'Specifies if the game server will be password protected. <b>Values</b>: 1=Yes, 0=No'/*/T*/,
+                                                                                'label'           => lang('game_private'),
+                                                                                'description'     => lang('Specifies if the game server will be password protected. <b>Values</b>: 1=Yes, 0=No'),
                                                                                 'value'           => '0',
                                                                         ),
                                                                 'game_level' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'game_level'/*/T*/,
-                                                                                'description'     => /*T*/'The game server will only be created in servers with the specified service level.<br /> This can be used to sell game servers with different levels of bandwidth, hardware, support, etc.'/*/T*/,
+                                                                                'label'           => lang('game_level'),
+                                                                                'description'     => lang('The game server will only be created in servers with the specified service level.<br /> This can be used to sell game servers with different levels of bandwidth, hardware, support, etc.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_datacenter' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_datacenter'/*/T*/,
-                                                                                'description'     => /*T*/'The datacenter where the voice server will be created. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('voice_datacenter'),
+                                                                                'description'     => lang('The datacenter where the voice server will be created. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_hostname' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_hostname'/*/T*/,
-                                                                                'description'     => /*T*/'The voice server\'s hostname. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('voice_hostname'),
+                                                                                'description'     => lang('The voice server\'s hostname. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_rcon_password' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_rcon_password'/*/T*/,
-                                                                                'description'     => /*T*/'The voice server\'s rcon password. This is only used if skip_setup_page = 1'/*/T*/,
+                                                                                'label'           => lang('voice_rcon_password'),
+                                                                                'description'     => lang('The voice server\'s rcon password. This is only used if skip_setup_page = 1'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_private_password' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_private_password'/*/T*/,
-                                                                                'description'     => /*T*/'The voice server\'s private password.<br /> This is only used if skip_setup_page = 1, voice_private = 1 and voice_id isn\'t TEAMSPEAK'/*/T*/,
+                                                                                'label'           => lang('voice_private_password'),
+                                                                                'description'     => lang('The voice server\'s private password.<br /> This is only used if skip_setup_page = 1, voice_private = 1 and voice_id isn\'t TEAMSPEAK'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_id' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_id'/*/T*/,
-                                                                                'description'     => /*T*/'The voice id of the new voice sever. Set to blank or NONE to disable.<br /> Values are TEAMSPEAK for Teamspeak 2 and TCXXXXXXXXX for any other game server. Replace XXXXXXXXX with the Id assigned in TCAdmin.'/*/T*/,
+                                                                                'label'           => lang('voice_id'),
+                                                                                'description'     => lang('The voice id of the new voice sever. Set to blank or NONE to disable.<br /> Values are TEAMSPEAK for Teamspeak 2 and TCXXXXXXXXX for any other game server. Replace XXXXXXXXX with the Id assigned in TCAdmin.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_slots' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_slots'/*/T*/,
-                                                                                'description'     => /*T*/'The slots that the voice server will have.<br /> If set to blank and a valid game server and slot have been specified, the voice server will use the same number of slots.<br /> If set to 0 or blank and no game slots have been specified, no voice server will be created.'/*/T*/,
+                                                                                'label'           => lang('voice_slots'),
+                                                                                'description'     => lang('The slots that the voice server will have.<br /> If set to blank and a valid game server and slot have been specified, the voice server will use the same number of slots.<br /> If set to 0 or blank and no game slots have been specified, no voice server will be created.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_add_slots' => array (
                                                                                 'type'            => 'text',
                                                                                 'size'            => '3',
-                                                                                'label'           => /*T*/'voice_add_slots'/*/T*/,
-                                                                                'description'     => /*T*/'Additional slots that the voice server will have. One way to use this variable is by selling extra slots.'/*/T*/,
+                                                                                'label'           => lang('voice_add_slots'),
+                                                                                'description'     => lang('Additional slots that the voice server will have. One way to use this variable is by selling extra slots.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'voice_private' => array (
                                                                                 'type'            => 'yesno',
-                                                                                'label'           => /*T*/'voice_private'/*/T*/,
-                                                                                'description'     => /*T*/'Specifies if the game server will be password protected. <b>Values</b>: 1=Yes, 0=No'/*/T*/,
+                                                                                'label'           => lang('voice_private'),
+                                                                                'description'     => lang('Specifies if the game server will be password protected. <b>Values</b>: 1=Yes, 0=No'),
                                                                                 'value'           => '0',
                                                                         ),
                                                                 'voice_level' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'voice_level'/*/T*/,
-                                                                                'description'     => /*T*/'Same as game_level except for voice servers.'/*/T*/,
+                                                                                'label'           => lang('voice_level'),
+                                                                                'description'     => lang('Same as game_level except for voice servers.'),
                                                                                 'value'           => '',
                                                                         ),
                                                                 'switch_at_once' => array (
                                                                                 'type'            => 'text',
-                                                                                'label'           => /*T*/'switch_at_once'/*/T*/,
-                                                                                'description'     => /*T*/'The number of game servers that can be running at once.<br /> Set to 0 or blank to disable game switching.'/*/T*/,
+                                                                                'label'           => lang('switch_at_once'),
+                                                                                'description'     => lang('The number of game servers that can be running at once.<br /> Set to 0 or blank to disable game switching.'),
                                                                                 'value'           => '',
                                                                 )
                                             ),
         ),
-        /*T*/"Actions"/*/T*/ => array (
+        lang("Actions") => array (
                                     "type"          => "hidden",
-                                    "description"   => /*T*/"current actions that are active for this plugin_per server"/*/T*/,
+                                    "description"   => lang("current actions that are active for this plugin_per server"),
                                     "value"         => "Create,Delete,Suspend,UnSuspend"
         )
         );
