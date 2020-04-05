@@ -19,7 +19,8 @@ class PluginTcadmin extends ServerPlugin
     // function getVariables - required function
     /*****************************************************************/
 
-    function getVariables(){
+    function getVariables()
+    {
         /* Specification
             itemkey     - used to identify variable in your other functions
             type        - text,textarea,yesno,password
@@ -264,7 +265,8 @@ class PluginTcadmin extends ServerPlugin
         return $variables;
     }
 
-    function create($args) {
+    function create($args)
+    {
         $args = $this->set_all_args($args);
         $error="";
         $addons = @$args['package']['addons'];
@@ -274,8 +276,9 @@ class PluginTcadmin extends ServerPlugin
         // addons should overwrite package vars
         if (isset($addons) && is_array($addons)) {
             foreach ($addons as $key => $result) {
-                if ($result != '')
+                if ($result != '') {
                     $master[$key] = $result;
+                }
             }
         }
         foreach ($master as $key => $result) {
@@ -298,41 +301,49 @@ class PluginTcadmin extends ServerPlugin
         }
 
         // assign the custom fields to the proper values
-        if (isset($args['game_hostname']) && $args['game_hostname'] != '')
+        if (isset($args['game_hostname']) && $args['game_hostname'] != '') {
             $use['game_hostname'] = $args['game_hostname'];
-        if (isset($args['game_rcon_password']) && $args['game_rcon_password'] != '')
+        }
+        if (isset($args['game_rcon_password']) && $args['game_rcon_password'] != '') {
             $use['game_rcon_password'] = $args['game_rcon_password'];
-        if (isset($args['game_private_password']) && $args['game_private_password'] != '')
+        }
+        if (isset($args['game_private_password']) && $args['game_private_password'] != '') {
             $use['game_private_password'] = $args['game_private_password'];
-        if (isset($args['voice_hostname']) && $args['voice_hostname'] != '')
+        }
+        if (isset($args['voice_hostname']) && $args['voice_hostname'] != '') {
             $use['voice_hostname'] = $args['voice_hostname'];
-        if (isset($args['voice_rcon_password']) && $args['voice_rcon_password'] != '')
+        }
+        if (isset($args['voice_rcon_password']) && $args['voice_rcon_password'] != '') {
             $use['voice_rcon_password'] = $args['voice_rcon_password'];
-        if (isset($args['voice_private_password']) && $args['voice_private_password'] != '')
+        }
+        if (isset($args['voice_private_password']) && $args['voice_private_password'] != '') {
             $use['voice_private_password'] = $args['voice_private_password'];
+        }
 
         $username = $args['server']['variables']['plugin_tcadmin_client_username_field'];
         $nUsername = '';
         //The $username will stay the same of how it is exactly, its corrected here
         $uSearch =     'abcdefghijklmnopqrstuvwxyz1234567890-_'; //This is the chars that are allowed by tcadmin. If these are not in there username, there removed.
-        for ($i = 0;$i < strlen($username);$i++) {
-            if (strstr($uSearch,strtolower($username{$i}))) {
+        for ($i = 0; $i < strlen($username); $i++) {
+            if (strstr($uSearch, strtolower($username{$i}))) {
                 $nUsername .= $username{$i};
             }
         }
         //If the username is Nothing lets use there first name.
-        if ($nUsername == '') { $nUsername = $args['customer']['first_name']; }
+        if ($nUsername == '') {
+            $nUsername = $args['customer']['first_name'];
+        }
         //Limit the username to 15 chars.
         if (strlen($nUsername) > 15) {
-            $nUsername = mb_substr($nUsername,0,15);
+            $nUsername = mb_substr($nUsername, 0, 15);
         }
         //Limit the password to 25 chars.
         if (strlen($args['server']['variables']['plugin_tcadmin_client_password_field']) > 25) {
-            $args['server']['variables']['plugin_tcadmin_client_password_field'] = mb_substr($args['server']['variables']['plugin_tcadmin_client_password_field'],0,25);
+            $args['server']['variables']['plugin_tcadmin_client_password_field'] = mb_substr($args['server']['variables']['plugin_tcadmin_client_password_field'], 0, 25);
         }
         //Remove & signs. this is done here so it can update later.
-        if (strstr($args['server']['variables']['plugin_tcadmin_client_password_field'],'&')) {
-            $args['server']['variables']['plugin_tcadmin_client_password_field'] = str_replace('&','',$args['server']['variables']['plugin_tcadmin_client_password_field']);
+        if (strstr($args['server']['variables']['plugin_tcadmin_client_password_field'], '&')) {
+            $args['server']['variables']['plugin_tcadmin_client_password_field'] = str_replace('&', '', $args['server']['variables']['plugin_tcadmin_client_password_field']);
         }
         $urlvars = array(
         'function' => 'AddPendingSetup',
@@ -376,12 +387,12 @@ class PluginTcadmin extends ServerPlugin
         $error = false;
         $createResponse = '';
         $tcAdminResponse = array();
-        $create = $this->sendtotcadmin($args,$urlvars);
+        $create = $this->sendtotcadmin($args, $urlvars);
         if (is_a($create, 'CE_Error')) {
             $error = true;
         } else {
             //The format of this is: return_code        return_text        error_code        error_text
-            $createResponse = explode("\t",$create);
+            $createResponse = explode("\t", $create);
             $tcAdminResponse = array(
                                     'return_code' => $createResponse[0],
                                     'return_text' => $createResponse[1],
@@ -391,12 +402,10 @@ class PluginTcadmin extends ServerPlugin
             if (count($createResponse) == 0) {
                 //No response received.
                 $error = true;
-            }
-            elseif ($tcAdminResponse['error_code'] != '0' || $tcAdminResponse['return_code'] != '0') {
+            } elseif ($tcAdminResponse['error_code'] != '0' || $tcAdminResponse['return_code'] != '0') {
                 //Error, something wasnt correct.
                 $error = true;
-            }
-            else {
+            } else {
                 if ($tcAdminResponse['return_text'] != $username) {
                     if ($tcAdminResponse['return_text'] != '') {
                         $args['package_class']->setCustomField($args['server']['variables']['plugin_tcadmin_Client_Username_Custom_Field'], $tcAdminResponse['return_text'], CUSTOM_FIELDS_FOR_PACKAGE);
@@ -405,8 +414,8 @@ class PluginTcadmin extends ServerPlugin
             }
         }
         if ($error == true) {
-            $parms = print_r($urlvars,1);
-            $parms2 = print_r($tcAdminResponse,1);
+            $parms = print_r($urlvars, 1);
+            $parms2 = print_r($tcAdminResponse, 1);
             $message = "Alert, the tcadmin plugin hasn't executed fully, and resulted in a FAILED action. Please review this email as it contains information about what has happen
 Client Email: ".$args['customer']['email']."
 Client name: ".$args['customer']['first_name']." ".$args['customer']['last_name']."
@@ -460,40 +469,45 @@ Make sure the Billing api is checked.
 Under Allowed IPs, enter your webservers ip Note: Enter one ip per line.
 
 ";
-            $this->error_mail($args,$message,'Tcadmin server creation failed.');
+            $this->error_mail($args, $message, 'Tcadmin server creation failed.');
             throw new CE_Exception('An error has occured, a detailed explantion has been emailed to '.$args['server']['variables']['plugin_tcadmin_Error_Email']);
         }
     }
 
-    function update($args) {
+    function update($args)
+    {
         //Right now tcadmins billingapi doesn't support this. We might create a secondary script for tcadmin to interact with updates/upgrades.
     }
 
-    function delete($args){
+    function delete($args)
+    {
         $urlvars = array(
                         'function' => 'DeleteGameAndVoiceByBillingID',
                         'client_package_id' => $args['package']['id']
         );
-        $delete = $this->sendtotcadmin($args,$urlvars);
+        $delete = $this->sendtotcadmin($args, $urlvars);
     }
 
-    function suspend($args){
+    function suspend($args)
+    {
                 $urlvars = array(
                         'function' => 'SuspendGameAndVoiceByBillingID',
                         'client_package_id' => $args['package']['id']
                 );
-            $suspend = $this->sendtotcadmin($args,$urlvars);
+                $suspend = $this->sendtotcadmin($args, $urlvars);
     }
-    function unsuspend($args){
+    function unsuspend($args)
+    {
                 $urlvars = array(
                         'function' => 'UnSuspendGameAndVoiceByBillingID',
                         'client_package_id' => $args['package']['id']
                 );
-                $unsuspend = $this->sendtotcadmin($args,$urlvars);
+                $unsuspend = $this->sendtotcadmin($args, $urlvars);
     }
     //This function is just a simple way of setting all of the arguments, maybe used later in other things such as an upgrade option.
-    function set_all_args($args) {
-        $package = new UserPackage($args['package']['id'], $this->user);
+    function set_all_args($args)
+    {
+        $package = new UserPackage($args['package']['id'], [], $this->user);
         $clientuser = "";
         $clientpass = "";
         $location = "";
@@ -529,28 +543,29 @@ Under Allowed IPs, enter your webservers ip Note: Enter one ip per line.
         $state = $clientUser->getState();
         $country = $clientUser->getCountry();
         $args['user_information'] = array(
-                'address' => mb_substr($address,0,150),
-                'phone' => mb_substr($phone,0,20),
-                'zip' => mb_substr($zip,0,10),
-                'city' => mb_substr($city,0,50),
-                'state' => mb_substr($state,0,50),
-                'country' => mb_substr($country,0,2)
+                'address' => mb_substr($address, 0, 150),
+                'phone' => mb_substr($phone, 0, 20),
+                'zip' => mb_substr($zip, 0, 10),
+                'city' => mb_substr($city, 0, 50),
+                'state' => mb_substr($state, 0, 50),
+                'country' => mb_substr($country, 0, 2)
         );
         $args['package_class'] = $package;
         return $args;
     }
 
-    function error_mail($args,$message,$subject)
+    function error_mail($args, $message, $subject)
     {
         $to = $args['server']['variables']['plugin_tcadmin_Error_Email'];
         $mailGateway = new NE_MailGateway();
-        $mailGateway->mailMessageEmail($message,$this->settings->get('Support E-mail'),'[CE] Tcadmin plugin',$to,'',$subject,"","");
+        $mailGateway->mailMessageEmail($message, $this->settings->get('Support E-mail'), '[CE] Tcadmin plugin', $to, '', $subject, "", "");
     }
 
-    function sendtotcadmin($args,$values) {
+    function sendtotcadmin($args, $values)
+    {
         $post = 'tcadmin_username='.urlencode($args['server']['variables']['plugin_tcadmin_Admin_username']).'&tcadmin_password='.urlencode($args['server']['variables']['plugin_tcadmin_Admin_password']).'&response_type=text';
         foreach ($values as $key => $value) {
-            $post .= "&$key=".urlencode(str_replace('\'','',$value));
+            $post .= "&$key=".urlencode(str_replace('\'', '', $value));
         }
         $url = $args['server']['variables']['plugin_tcadmin_Billing_API_url'];
         $result = NE_Network::curlRequest($this->settings, $url, $post, false, true);
@@ -585,4 +600,3 @@ Under Allowed IPs, enter your webservers ip Note: Enter one ip per line.
         return 'Package has been deleted.';
     }
 }
-?>
