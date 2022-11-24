@@ -157,6 +157,24 @@ class PluginTcadmin extends ServerPlugin
                                                                                 'description'     => lang('The game id of the new game sever. Set to blank or NONE to disable.'),
                                                                                 'value'           => '',
                                                                         ),
+                                                                'game_cpu' => array (
+                                                                                'type'            => 'text',
+                                                                                'label'           => lang('game_cpu'),
+                                                                                'description'     => lang('The game cpu limit of the new game sever. 100% per core.'),
+                                                                                'value'           => '',
+                                                                         ),
+                                                                'game_memory' => array (
+                                                                               'type'            => 'text',
+                                                                               'label'           => lang('game_memory'),
+                                                                               'description'     => lang('The game memory limit of the new game sever. Set in MB.'),
+                                                                               'value'           => '',
+                                                                        ),
+                                                                'game_virtual_memory' => array (
+                                                                                'type'            => 'text',
+                                                                                'label'           => lang('game_virtual_memory'),
+                                                                                'description'     => lang('The game virtual memory of the new game sever. Set in MB'),
+                                                                                'value'           => '',
+                                                                     ),
                                                                 'game_slots' => array (
                                                                                 'type'            => 'text',
                                                                                 'label'           => lang('game_slots'),
@@ -325,8 +343,8 @@ class PluginTcadmin extends ServerPlugin
         //The $username will stay the same of how it is exactly, its corrected here
         $uSearch =     'abcdefghijklmnopqrstuvwxyz1234567890-_'; //This is the chars that are allowed by tcadmin. If these are not in there username, there removed.
         for ($i = 0; $i < strlen($username); $i++) {
-            if (strstr($uSearch, strtolower($username{$i}))) {
-                $nUsername .= $username{$i};
+            if (strstr($uSearch, strtolower($username[$i]))) {
+                $nUsername .= $username[$i];
             }
         }
         //If the username is Nothing lets use there first name.
@@ -364,6 +382,9 @@ class PluginTcadmin extends ServerPlugin
         'user_name' => $nUsername,
         'user_password' => @$args['server']['variables']['plugin_tcadmin_client_password_field'],
         'game_id' => @$use['game_id'],
+        'game_cpu' => @$use['game_cpu'],
+        'game_memory' => @$use['game_memory'],
+        'game_virtual_memory' => @$use['game_virtual_memory'],
         'game_slots' => @$use['game_slots'],
         'game_private' => @$use['game_private'],
         'game_additional_slots' => @$use['game_add_slots'],
